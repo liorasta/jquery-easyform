@@ -1,0 +1,16 @@
+
+.form-group{
+	position: relative;
+	padding-bottom:1.5em;
+	margin-bottom: 0;
+}
+
+label.error{
+	position: absolute;
+	left: 0;
+	bottom: 0.2em;
+	color: red;
+	font-size: 0.8em;
+	line-height: 1em;
+	font-weight: 300;
+}

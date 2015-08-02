@@ -1,0 +1,29 @@
+{
+	"name": "jquery-easyform",
+	"description": "A Jquery plugin that helps to build an ajax validated form client + server",
+	"version": "1.0.0",
+	"license": "MIT",
+	"main": ["jquery.easyform.js"],
+	"keywords": [
+		"form",
+		"easyform",
+		"jQuery",
+		"jquery-plugin",
+		"jquery-migrate",
+		"jquery-validation",
+		"validation"
+	],
+	"dependencies": {
+		"jquery": ">=2.1.3",
+		"jquery-migrate": ">=1.2.1",
+		"jquery-validation": ">=1.13.1"
+	},
+	"devDependencies":{
+		"bootstrap": ">=3.3.5"
+	},
+	"ignore": [
+		"**/.*",
+    	"example",
+    	"bower_components"
+	]
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" prefix="og: http://ogp.me/ns#">
+	<head>
+		<title>Jquery.easyform</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+		<link rel="stylesheet" type="text/css" href="../bower_components/bootstrap/dist/css/bootstrap-theme.css" />
+		<link rel="stylesheet" type="text/css" href="example.css" />
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<h1 class="text-center">Jquery Easy form example</h1>
+					<h2>Success Form</h2>
+					<form method="GET" action="services/success.json" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
+						<div class="form-group">
+							<label for="firstname">Your First Name:</label>
+							<input class="form-control" type="text" name="firstname" id="firstname" data-rule-required="true" data-msg-required="Please enter your first name"  />
+						</div>
+						<div class="form-group">
+							<label for="lastname">Your First Name:</label>
+							<input class="form-control" type="text" name="lastname" id="lastname" data-rule-required="true" data-msg-required="Please enter your last name" />
+						</div>
+						<div class="form-group">
+							<label for="email">Your Email Address:</label>
+							<input class="form-control" type="text" name="email" id="email" data-rule-required="true" data-msg-required="Please enter your email address" data-rule-email="true" data-msg-email="Please enter a valid email address" />
+						</div>
+						<div class="form-group">
+							<input class="btn btn-default" type="submit" value="Submit" />
+						</div>
+					</form>
+					<h2>Fail Form</h2>
+					<form method="GET" action="services/fail.json" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
+						<div class="form-group">
+							<label for="firstname">Your First Name:</label>
+							<input class="form-control" type="text" name="firstname" id="firstname" data-rule-required="true" data-msg-required="Please enter your first name"  />
+						</div>
+						<div class="form-group">
+							<label for="lastname">Your First Name:</label>
+							<input class="form-control" type="text" name="lastname" id="lastname" data-rule-required="true" data-msg-required="Please enter your last name" />
+						</div>
+						<div class="form-group">
+							<label for="email">Your Email Address:</label>
+							<input class="form-control" type="text" name="email" id="email" data-rule-required="true" data-msg-required="Please enter your email address" data-rule-email="true" data-msg-email="Please enter a valid email address" />
+						</div>
+						<div class="form-group">
+							<input class="btn btn-default" type="submit" value="Submit" />
+						</div>
+					</form>
+					<h2>Error Form</h2>
+					<form method="GET" action="/error" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
+						<div class="form-group">
+							<label for="firstname">Your First Name:</label>
+							<input class="form-control" type="text" name="firstname" id="firstname" data-rule-required="true" data-msg-required="Please enter your first name"  />
+						</div>
+						<div class="form-group">
+							<label for="lastname">Your First Name:</label>
+							<input class="form-control" type="text" name="lastname" id="lastname" data-rule-required="true" data-msg-required="Please enter your last name" />
+						</div>
+						<div class="form-group">
+							<label for="email">Your Email Address:</label>
+							<input class="form-control" type="text" name="email" id="email" data-rule-required="true" data-msg-required="Please enter your email address" data-rule-email="true" data-msg-email="Please enter a valid email address" />
+						</div>
+						<div class="form-group">
+							<input class="btn btn-default" type="submit" value="Submit" />
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../bower_components/jquery/dist/jquery.js"></script>
+		<script type="text/javascript" src="../bower_components/jquery-migrate/jquery-migrate.js"></script>
+		<script type="text/javascript" src="../bower_components/jquery-validation/dist/jquery.validate.js"></script>
+		<script type="text/javascript" src="../bower_components/jquery-validation/dist/additional-methods.js"></script>
+		<script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+		<script type="text/javascript" src="../jquery.easyform.js"></script>
+		<script type="text/javascript" src="example.js"></script>
+	</body>
+</html>

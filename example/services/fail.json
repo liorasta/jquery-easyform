@@ -1,0 +1,7 @@
+{
+	"success":false,
+	"messages": 
+	[
+		{"name": "email", "validation": "email"}
+	]
+}
