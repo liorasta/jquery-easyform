@@ -143,7 +143,7 @@
 									$(form).find('#' + data.messages[i].name).addClass('error').focus();
 								}
 							}else{
-								$(form).find('[for="form_fail"]').removeClass('hide').siblings().remove();
+								$(form).find('[for="form_fail"]').removeClass('hide');
 							}
 							if($(form).attr('on_fail') && typeof window[$(form).attr('on_fail')] === "function"){
 								eval($(form).attr('on_fail'))($(form), data);
@@ -153,7 +153,7 @@
 					error: function(jqXHR, text, error){
 						$(submit).removeAttr('disabled');
 						endDots(form);
-						$(form).find('[for="form_error"]').removeAttr('style').removeClass('hide');
+						$(form).find('[for="form_error"]').removeClass('hide');
 						if($(form).attr('on_error') && typeof window[$(form).attr('on_error')] === "function"){
 							eval($(form).attr('on_error'))($(form), jqXHR, text, error);
 						}
