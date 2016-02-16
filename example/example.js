@@ -40,6 +40,10 @@ function on_error(form, jqXHR, text, error){
 	console.log("----------------");
 }
 
+document.getElementById('successForm').addEventListener('easyFormOnSuccess' , function(e){console.log('Success Binded Function')});
+document.getElementById('failForm').addEventListener('easyFormOnFail' , function(e){console.log('Fail Binded Function')});
+document.getElementById('errorForm').addEventListener('easyFormOnError' , function(e){console.log('Error Binded Function')});
+
 (function() {
 	$(document).ready(function() {
 		$('form').each(function(index, obj){

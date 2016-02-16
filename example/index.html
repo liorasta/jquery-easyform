@@ -13,7 +13,7 @@
 				<div class="col-12">
 					<h1 class="text-center">Jquery Easy form example</h1>
 					<h2>Success Form</h2>
-					<form method="GET" action="services/success.json" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
+					<form method="GET" id="successForm" action="services/success.json" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
 						<div class="form-group">
 							<label for="firstname">Your First Name:</label>
 							<input class="form-control" type="text" name="firstname" id="firstname" data-rule-required="true" data-msg-required="Please enter your first name"  />
@@ -31,7 +31,7 @@
 						</div>
 					</form>
 					<h2>Fail Form</h2>
-					<form method="GET" action="services/fail.json" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
+					<form method="GET" id="failForm" action="services/fail.json" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
 						<div class="form-group">
 							<label for="firstname">Your First Name:</label>
 							<input class="form-control" type="text" name="firstname" id="firstname" data-rule-required="true" data-msg-required="Please enter your first name"  />
@@ -49,7 +49,7 @@
 						</div>
 					</form>
 					<h2>Error Form</h2>
-					<form method="GET" action="/error" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
+					<form method="GET" id="errorForm" action="/error" on_submit="on_submit" on_success="on_success" on_fail="on_fail" on_error="on_error">
 						<div class="form-group">
 							<label for="firstname">Your First Name:</label>
 							<input class="form-control" type="text" name="firstname" id="firstname" data-rule-required="true" data-msg-required="Please enter your first name"  />

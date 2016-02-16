@@ -1,5 +1,9 @@
 (function ($) {
 
+	var successEvent = new Event('easyFormOnSuccess');
+	var errorEvent = new Event('easyFormOnError');
+	var failEvent = new Event('easyFormOnFail');
+
 	var defaultSuccessMessage = "Success";
 	var defaultFailMessage = "Fail";
 	var defaultErrorMessage = "Error";
@@ -132,6 +136,7 @@
 							if($(form).attr('on_success') && typeof window[$(form).attr('on_success')] === "function"){
 								eval($(form).attr('on_success'))($(form), data);
 							}
+							$(form)[0].dispatchEvent(successEvent);
 						}else{
 							if(data['messages'] && data['messages'].length>0){
 								for(var i=0;i < data.messages.length; i++){
@@ -148,7 +153,9 @@
 							if($(form).attr('on_fail') && typeof window[$(form).attr('on_fail')] === "function"){
 								eval($(form).attr('on_fail'))($(form), data);
 							}
+							$(form)[0].dispatchEvent(failEvent);
 						}
+						
 					},
 					error: function(jqXHR, text, error){
 						$(submit).removeAttr('disabled');
@@ -157,6 +164,7 @@
 						if($(form).attr('on_error') && typeof window[$(form).attr('on_error')] === "function"){
 							eval($(form).attr('on_error'))($(form), jqXHR, text, error);
 						}
+						$(form)[0].dispatchEvent(errorEvent);
 					}
 				});
 				return false;
