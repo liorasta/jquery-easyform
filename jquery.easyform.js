@@ -132,11 +132,11 @@
 						$(submit).removeAttr('disabled');
 						endDots(form);
 						if(data['success'] && data['success'] == true){
-							$(form).find('[for="form_success"]').removeClass('hide');
+							$(form)[0].dispatchEvent(successEvent);
+							$(form).find('[for="form_success"]').removeClass('hide');						
 							if($(form).attr('on_success') && typeof window[$(form).attr('on_success')] === "function"){
 								eval($(form).attr('on_success'))($(form), data);
 							}
-							$(form)[0].dispatchEvent(successEvent);
 						}else{
 							if(data['messages'] && data['messages'].length>0){
 								for(var i=0;i < data.messages.length; i++){
@@ -150,21 +150,23 @@
 							}else{
 								$(form).find('[for="form_fail"]').removeClass('hide');
 							}
+							$(form)[0].dispatchEvent(failEvent);
 							if($(form).attr('on_fail') && typeof window[$(form).attr('on_fail')] === "function"){
 								eval($(form).attr('on_fail'))($(form), data);
 							}
-							$(form)[0].dispatchEvent(failEvent);
+							
 						}
 						
 					},
 					error: function(jqXHR, text, error){
 						$(submit).removeAttr('disabled');
+						$(form)[0].dispatchEvent(errorEvent);
 						endDots(form);
 						$(form).find('[for="form_error"]').removeClass('hide');
 						if($(form).attr('on_error') && typeof window[$(form).attr('on_error')] === "function"){
 							eval($(form).attr('on_error'))($(form), jqXHR, text, error);
 						}
-						$(form)[0].dispatchEvent(errorEvent);
+						
 					}
 				});
 				return false;
