@@ -1,9 +1,5 @@
 (function ($) {
 
-	var successEvent = new Event('easyFormOnSuccess');
-	var errorEvent = new Event('easyFormOnError');
-	var failEvent = new Event('easyFormOnFail');
-
 	var defaultSuccessMessage = "Success";
 	var defaultFailMessage = "Fail";
 	var defaultErrorMessage = "Error";
@@ -12,6 +8,26 @@
 	var defaultDots = 3;
 	var defaultInterval = 800;
 
+	var triggerEvent = function(el,eventName){
+		var event;
+		if(document.createEvent){
+			event = document.createEvent('HTMLEvents');
+			event.initEvent(eventName,true,true);
+		}else if(document.createEventObject){// IE < 9
+			event = document.createEventObject();
+			event.eventType = eventName;
+		}
+		event.eventName = eventName;
+		if(el.dispatchEvent){
+			el.dispatchEvent(event);
+		}else if(el.fireEvent && htmlEvents['on'+eventName]){// IE < 9
+			el.fireEvent('on'+event.eventType,event);// can trigger only real event (e.g. 'click')
+		}else if(el[eventName]){
+			el[eventName]();
+		}else if(el['on'+eventName]){
+			el['on'+eventName]();
+		}
+	};
 
 	var generateRandomVaribleName = function(length){
 		var text = "";
@@ -132,7 +148,7 @@
 						$(submit).removeAttr('disabled');
 						endDots(form);
 						if(data['success'] && data['success'] == true){
-							$(form)[0].dispatchEvent(successEvent);
+							triggerEvent($(form)[0], "easyFormOnSuccess");
 							$(form).find('[for="form_success"]').removeClass('hide');						
 							if($(form).attr('on_success') && typeof window[$(form).attr('on_success')] === "function"){
 								eval($(form).attr('on_success'))($(form), data);
@@ -150,7 +166,7 @@
 							}else{
 								$(form).find('[for="form_fail"]').removeClass('hide');
 							}
-							$(form)[0].dispatchEvent(failEvent);
+							triggerEvent($(form)[0], "easyFormOnFail");
 							if($(form).attr('on_fail') && typeof window[$(form).attr('on_fail')] === "function"){
 								eval($(form).attr('on_fail'))($(form), data);
 							}
@@ -160,7 +176,7 @@
 					},
 					error: function(jqXHR, text, error){
 						$(submit).removeAttr('disabled');
-						$(form)[0].dispatchEvent(errorEvent);
+						triggerEvent($(form)[0], "easyFormOnError");
 						endDots(form);
 						$(form).find('[for="form_error"]').removeClass('hide');
 						if($(form).attr('on_error') && typeof window[$(form).attr('on_error')] === "function"){
